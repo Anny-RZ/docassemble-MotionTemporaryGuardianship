@@ -264,29 +264,29 @@ fields:
     input type: area
     maxlength: 258
   - "What Is the specific harm to the minor you seek to avoid?": harm_sought_to_avoid
-    datatype: multiselect
+    datatype: yesnowide
     choices:
-      - minors health
-      - minors safety 
-      - minors welfare
+      - Significant harm to the minors health
+      - Significant harm to the minors safety 
+      - Significant harm to the minors welfare
   - "What actions will be taken to avoid harm stated above?": actions_to_avoid_harm
     input type: area
     maxlength: 258
 ---
 id: Guardian Appointment with without sureties
 question: |
-  Guardian Appointment with/without sureties
+  Please select whether you are appointing the Guardian of the Minor to serve WITH or WITHOUT Sureties
 subquestion: |
 
-  The Petitioner may request the court appoint a guardian (and co-Guardian if applicable) as temporary guardian of the minor to serve with/without sureties. (Bond Attached)
+  The Petitioner may request the court appoint a Guardian (and co-Guardian if applicable) as Temporary Guardian of the Minor to serve with/without Sureties. (Bond Attached)
 
   ${ collapse_template(Applicable_law) }
 
 fields:
-  - "Appointed Temporary Guardian of the minor to serve with sureties": with_sureties
-    datatype: yesnoradio
-  - "Appointed Temporary Guardian of the minor to serve without sureties": without_sureties
-    datatype: yesnoradio
+  - "Appointed Temporary Guardian of the minor to serve": with_sureties
+    choices:
+      - with Sureties: with_sureties 
+      - without Sureties: without_sureties  
 ---   
 template: Applicable_law
 subject: |
@@ -308,11 +308,12 @@ subquestion: |
   If you would like to request the court to take further actions or adjustments, please specify in this section of the petition.
 fields:
   - "Is there another request you would like to make to the Court?": is_requesting_yes
-    datatype: yesnoradio
-      
+    datatype: yesnoradio  
+    
   - "What would you like to additionally request from the Court?": has_additional_request
     input type: area
     maxlength: 176
+    show if: is_requesting_yes
 ---
 id: Date this form was Completed
 question: |
